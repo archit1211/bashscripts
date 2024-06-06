@@ -45,7 +45,7 @@ function list_users_with_read_access {
     fi
 }
 
-function helper{
+function helper {
     checksum=2
     if [ $# -ne $checksum]; then
     echo "Please Enter the command line arguments to properly run this bash script"
