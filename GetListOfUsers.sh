@@ -8,14 +8,7 @@
 #Example - ./<scriptname> <gitHub Organization/Username> <Repo Name>
 #############################
 
-
-function helper{
-    checksum=2
-    if [[ $# -ne checksum]];
-    echo "Please Enter the command line arguments to properly run this bash script"
-    echo "Expected args after execute commands are <gitHub Organization/Username> <Repo Name>"
-}
-
+helper()
 # GitHub API URL
 API_URL="https://api.github.com"
 
@@ -52,7 +45,13 @@ function list_users_with_read_access {
     fi
 }
 
-# Main script
+function helper{
+    checksum=2
+    if [ $# -ne $checksum]; then
+    echo "Please Enter the command line arguments to properly run this bash script"
+    echo "Expected args after execute commands are <gitHub Organization/Username> <Repo Name>"
+}
 
+# Main script
 echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."
 list_users_with_read_access
